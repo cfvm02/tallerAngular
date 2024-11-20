@@ -1,0 +1,10 @@
+<div class="card" *ngIf="seriesDetail">
+  <img [src]="seriesDetail.poster" class="card-img-top" [alt]="seriesDetail.name">
+  <div class="card-body">
+    <h5 class="card-title">{{ seriesDetail.name }}</h5>
+    <p class="card-text">{{ seriesDetail.description }}</p>
+    <p class="card-text">Channel: {{ seriesDetail.channel }}</p>
+    <p class="card-text">Seasons: {{ seriesDetail.seasons }}</p>
+    <a [href]="seriesDetail.webpage" class="btn btn-primary" target="_blank">Visit Page</a>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Series } from './series.js';
-import { SeriesService } from './series.service.js';
+import { Series } from './series';
+import { SeriesService } from './series.service';
 
 @Component({
   selector: 'app-series',
@@ -10,6 +10,7 @@ import { SeriesService } from './series.service.js';
 export class SeriesComponent implements OnInit {
   series: Series[] = [];
   averageSeasons: number = 0;
+  selectedSeries: Series | null = null; // Nueva propiedad para la serie seleccionada
 
   constructor(private seriesService: SeriesService) {}
 
@@ -25,6 +26,10 @@ export class SeriesComponent implements OnInit {
       const totalSeasons = this.series.reduce((sum, serie) => sum + serie.seasons, 0);
       this.averageSeasons = totalSeasons / this.series.length;
     }
+  }
+
+  selectSeries(series: Series) {
+    this.selectedSeries = series; // Método para seleccionar la serie
   }
 
   ngOnInit() {

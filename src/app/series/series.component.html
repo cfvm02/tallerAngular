@@ -1,28 +1,29 @@
 <div class="container-fluid">
-  <div class="col-6">
-    <h2>TV Series</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Channel</th>
-          <th>Seasons</th>
-          <th>Description</th>
-          <th>Webpage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let s of series; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ s.name }}</td>
-          <td>{{ s.channel }}</td>
-          <td>{{ s.seasons }}</td>
-          <td>{{ s.description }}</td>
-          <td><a [href]="s.webpage" target="_blank">Visit</a></td>
-        </tr>
-      </tbody>
-    </table>
-    <p>Seasons average: {{ averageSeasons }}</p>
+  <div class="row">
+    <div class="col-6">
+      <h2>TV Series</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Channel</th>
+            <th>Seasons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of series; let i = index" (click)="selectSeries(s)">
+            <td>{{ i + 1 }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.channel }}</td>
+            <td>{{ s.seasons }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Seasons average: {{ averageSeasons }}</p>
+    </div>
+    <div class="col-6">
+      <app-series-detail [seriesDetail]="selectedSeries"></app-series-detail>
+    </div>
   </div>
 </div>

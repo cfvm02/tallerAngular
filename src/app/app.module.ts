@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { SeriesComponent } from './series/series.component.js';
+import { SeriesComponent } from './series/series.component';
+import { SeriesDetailComponent } from './series/series-detail/series-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SeriesComponent
+    SeriesComponent,
+    SeriesDetailComponent // Declara el componente de detalle
   ],
   imports: [
     BrowserModule,
